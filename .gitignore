@@ -1,5 +1,7 @@
+### Maven ###
 target/
-!.mvn/wrapper/maven-wrapper.jar
+.mvn
+.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
 .classpath
@@ -21,3 +23,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+### MacOS ###
+.DS_Store
