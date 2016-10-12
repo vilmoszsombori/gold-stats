@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Simple 3D graph</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="webjars/bootstrap/@bootstrap.version@/css/bootstrap.css">
+	<link rel="stylesheet" href="css/app.css">
+    <script src="webjars/angularjs/@angularjs.version@/angular.js"></script>
+    <script src="webjars/angularjs/@angularjs.version@/angular-resource.js"></script>
+    <script src="webjars/angularjs/@angularjs.version@/angular-route.js"></script>
+    <script src="webjars/plotly.js/@plotly.js.version@/dist/plotly.min.js"></script>
+    <script src="webjars/angular-plotly/@angular-plotly.version@/src/angular-plotly.js"></script>
+    <script src="webjars/angular-csv-import/@angular-csv-import.version@/dist/angular-csv-import.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body ng-controller="controller">
+	<div class="row">
+	    <div class="col-md-6">
+	        <h4>Select your CSV file: </h4>
+	        <ng-csv-import class="import"
+	                       content="csv.content"
+	                       header="csv.header"
+	                       header-visible="csv.headerVisible"
+	                       separator="csv.separator"
+	                       separator-visible="csv.separatorVisible"
+	                       result="csv.result"
+	                       encoding="csv.encoding"
+	                       encoding-visible="csv.encodingVisible"
+	                       callback="csv.callback"></ng-csv-import>
+	    </div>
+	</div>
+
+    <div class="row" >
+	    <plotly plotly-data="data" plotly-layout="layout" plotly-options="options" plotly-events="plotlyEvents"></plotly>
+	    <button ng-click="movePoint()">Move Point</button>
+	    <div>
+	        <h2>Event Subscription Demo:</h2>
+	        <p>Note: Use 'Box Select' to select points and update counter below</p>
+	        <h3>Number of Selected Points: <span> {{ NumberOfSelectedPoints }} </span></h3>
+            <h3>Points loaded: <span> {{ xArray }} </span></h3>
+	    </div>
+    </div>
+</body>
+</html>
